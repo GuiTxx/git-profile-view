@@ -7,12 +7,15 @@ const base_URL = "https://api.github.com"
 btnSearch.addEventListener("click", async () => {
     const userName = inputSearch.value;
     if (userName) {
+        profileResults.innerHTML = "<p class='loading'>Carregando...</p>";
+
         try {
             const response = await fetch(`${base_URL}/users/${userName}`);
 
             if (!response) {
                 alert("Usuário não encontrado. Por favor, verifique o nome de usuário e tente novamente.");
                 return;
+                profileResults.innerHTML = "";
             }
 
             const userData = await response.json();
@@ -30,6 +33,7 @@ btnSearch.addEventListener("click", async () => {
         } catch (error) {
             console.error("Erro ao buscar perfil do usuário:", error);
             alert("Ocorreu um erro ao buscar o perfil do usuário. Por favor, tente novamente mais tarde.");
+            profileResults.innerHTML = "";
             
         }
     } else {
