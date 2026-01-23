@@ -231,8 +231,8 @@ main {
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
   padding: 1.5rem 1rem;
-  min-width: 250px;
-  max-width: 300px;
+  width: 260px;
+  height: 270px;
   flex: 1 1 250px;
   display: flex;
   flex-direction: column;
